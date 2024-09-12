@@ -1,0 +1,73 @@
+<p>Nombre del empleado: {{ nombre }}</p>
+<p>Apellido del empleado: {{ apellido }}</p>
+<p>Edad del empleado: {{ (edad > 18) ? 'Mayor de edad': 'Menor de edad' }}</p>
+<p>Nombre de la empresa: {{ empresa }}</p>
+<!--Introduce el nombre de la empresa: <input type="text" #empresa (keyup)="0" [disabled]="habilitar_input_property"><br>
+<b>{{ texto_registro }}</b><br>-->
+Introduce la empresa: <input type="text" [(ngModel)]="empresa"><br>
+<!--Usuario registrado: <input type="checkbox" id="registro" [checked]="usuario_registrado_property" (click)="set_usuario_registrado()">-->
+Registrado: <input type="radio" name="n_registro" id="registro" [checked]="usuario_registrado_property" (click)="set_usuario_registrado($event)" value="si"><br>
+No registrado: <input type="radio" name="n_registro" value="no" (click)="set_usuario_registrado($event)"><br>
+<select [(ngModel)]="departamento">
+    <option value="">Seleccione un departamento</option>
+    <option value="1">San Salvador</option>
+    <option value="2">Santa Ana</option>
+    <option value="3">San Miguel</option>
+    <option value="4">Sonsonate</option>
+</select>
+{{ definir_depto() }}<br><br>
+
+<button [style]="estilo_definido" (click)="cambiar_color()">
+    Botón de prueba
+</button>
+
+<br>
+<h5>Ejercicio 1</h5>
+<input type="number" [(ngModel)]="n1" (keyup)="operar()"><br>
+<input type="text" [(ngModel)]="operador" (keyup)="operar()"><br>
+<input type="number" [(ngModel)]="n2" (keyup)="operar()"><br>
+<p>{{resultado}}</p>
+
+<h5>Ejercicio 2</h5>
+<button (click)="cambiar_estado($event)" value="iniciando" >Iniciar</button>
+<button (click)="cambiar_estado($event)" value="pausando" >Pausar</button>
+<button (click)="cambiar_estado($event)" value="detenido" >Detener</button>
+<p>{{estado_juego}}</p>
+<!--<button (click)="llamar_empresa(empresa.value)">Cambiar</button>-->
+
+<img [src]="imagen"/>
+<input type="text" [(ngModel)]="imagen"><br>
+
+<!-- Cambiar imagen -->
+<img [src]="imagenUrl" alt="Imagen">
+
+<input type="text" [(ngModel)]="newImagenUrl" placeholder="Ingrese la nueva URL de la imagen">
+<button (click)="cambiarImagen($event)">Cambiar Imagen</button>
+
+<br><br>
+<!-- Cambiar video -->
+<video [src]="videoUrl" alt="Video" controls></video>
+
+<input type="text" [(ngModel)]="newVideoUrl" placeholder="Ingrese la nueva URL del video">
+<button (click)="cambiarVideo($event)">Cambiar Video</button>
+
+<br><br>
+<audio controls>
+    <source [src]="audioUrl" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <input type="text" [(ngModel)]="newAudioUrl" placeholder="Ingrese la nueva URL del audio">
+  <button (click)="cambiarAudio($event)">Cambiar Audio</button>
+
+<!--<br><br>
+<button (click)="onButtonClick($event)">Presionar</button>
+<br><br>
+<input type="text" (input)="onInputChange($event)" placeholder="Escribe algo...">
+<p>{{ userInput }}</p>-->
+
+<app-propiedad></app-propiedad>
+
+
+
+<!--<button (click)="llamar_empresa(empresa.value)">Cambiar</button>-->
